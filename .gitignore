@@ -1,0 +1,36 @@
+# Sensitive information
+.env
+.env.*
+*.log
+*.swp
+.DS_Store
+.Trashes
+
+# Package directories
+node_modules/
+vendor/
+.npm/
+.yarn/
+
+# Cache directories
+.cache/
+__pycache__/
+*.py[cod]
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Local config overrides
+config.local.*
+*.local
+
+# Neovim specific
+.netrwhist
