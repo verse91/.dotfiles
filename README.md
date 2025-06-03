@@ -28,7 +28,7 @@ A carefully curated collection of dotfiles for my Linux development environment.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+git clone https://github.com/verse91/.dotfiles.git ~/.dotfiles
 
 # Run the bootstrap script
 cd ~/.dotfiles
