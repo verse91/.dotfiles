@@ -1413,3 +1413,13 @@ vim.keymap.set('i', '<C-d>', '<Esc>viw<C-g>', { desc = 'Select current word for 
 
 vim.o.number = true
 vim.o.relativenumber = true
+
+-- Map Shift+L to reach the end of line and Shift+J to reach the first non-blank character
+-- Make these mappings work in normal, visual and insert modes
+vim.keymap.set('n', 'L', '$', { desc = 'Go to end of line', noremap = true })
+vim.keymap.set('v', 'L', '$', { desc = 'Go to end of line (visual mode)', noremap = true })
+vim.keymap.set('i', '<S-l>', '<C-o>$', { desc = 'Go to end of line (insert mode)', noremap = true })
+
+vim.keymap.set('n', 'J', '^', { desc = 'Go to first non-blank character', noremap = true })
+vim.keymap.set('v', 'J', '^', { desc = 'Go to first non-blank character (visual mode)', noremap = true })
+vim.keymap.set('i', '<S-j>', '<C-o>^', { desc = 'Go to first non-blank character (insert mode)', noremap = true })
