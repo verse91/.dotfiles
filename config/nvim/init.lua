@@ -1186,6 +1186,8 @@ require('lazy').setup({
       vim.cmd [[silent !cd ~/.local/share/nvim/lazy/blink.cmp && cargo build --release]]
     end,
     dependencies = {
+      -- Compatibility layer for sources
+      'saghen/blink.compat',
       -- Snippet Engine
       {
         'L3MON4D3/LuaSnip',
@@ -1233,10 +1235,15 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'snippets', 'lsp', 'path', 'lazydev' },
+        -- Temporarily disabled for installing supermaven
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'supermaven' },
         providers = {
-          snippets = { score_offset = 200 }, -- Higher score offset to ensure snippets appear first
-          lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          supermaven = {
+            name = 'supermaven',
+            module = 'blink.compat.source',
+            score_offset = 100,
+            async = true,
+          },
         },
       },
 
@@ -1365,6 +1372,82 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+
+  -- AI Code completion
+  {
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup {
+        keymaps = {
+          accept_suggestion = '<Tab>',
+          clear_suggestion = '<C-]>',
+          accept_word = '<C-j>',
+        },
+        ignore_filetypes = { cpp = true },
+        color = {
+          suggestion_color = '#888888', -- More subtle gray color
+          cterm = 244,
+        },
+        log_level = 'info', -- set to "off" to disable logging completely
+        disable_inline_completion = false, -- Keep inline completions enabled
+        disable_keymaps = false, -- Keep keymaps enabled
+      }
+
+      -- Enhanced autocomplete behavior for better proactive suggestions
+      vim.api.nvim_create_autocmd({ 'CursorMovedI', 'InsertEnter' }, {
+        pattern = '*',
+        callback = function()
+          -- Trigger completion preview when cursor moves in insert mode
+          vim.defer_fn(function()
+            local completion_preview = require 'supermaven-nvim.completion_preview'
+            if completion_preview and completion_preview.trigger_completion then
+              completion_preview.trigger_completion()
+            end
+          end, 100) -- Small delay to avoid excessive triggering
+        end,
+      })
+
+      -- More aggressive suggestion triggering for empty lines and minimal context
+      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        pattern = '*',
+        callback = function()
+          -- Get current line content
+          local line = vim.api.nvim_get_current_line()
+          local col = vim.api.nvim_win_get_cursor(0)[2]
+
+          -- Trigger suggestions even on empty lines or with minimal context
+          if string.len(line) == 0 or col == 0 or string.len(string.sub(line, 1, col)) <= 2 then
+            vim.defer_fn(function()
+              local completion_preview = require 'supermaven-nvim.completion_preview'
+              if completion_preview and completion_preview.trigger_completion then
+                completion_preview.trigger_completion()
+              end
+            end, 50)
+          end
+        end,
+      })
+
+      -- Set shorter updatetime for more responsive suggestions
+      vim.o.updatetime = 100
+
+      -- Keybinding to manually trigger suggestions (Ctrl+Space)
+      vim.keymap.set('i', '<C-Space>', function()
+        local completion_preview = require 'supermaven-nvim.completion_preview'
+        if completion_preview and completion_preview.trigger_completion then
+          completion_preview.trigger_completion()
+        end
+      end, { desc = 'Trigger Supermaven suggestion' })
+
+      -- Auto-prompt for login if not authenticated
+      vim.defer_fn(function()
+        -- Check if supermaven is authenticated by trying to get status
+        local status_ok, _ = pcall(vim.cmd, 'SupermavenStatus')
+        if not status_ok then
+          vim.notify('Supermaven: Run :SupermavenUseFree to authenticate', vim.log.levels.WARN)
+        end
+      end, 2000) -- Wait 2 seconds for plugin to initialize
+    end,
+  },
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
