@@ -1,0 +1,157 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+-- Select All with Ctrl + A
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all text" })
+
+-- Backspace as Delete in Normal Mode
+vim.keymap.set("v", "<BS>", '"_d', { desc = "Delete selection without copying" })
+vim.keymap.set(
+  { "n", "i" },
+  "<C-d>",
+  "<Esc>viw<C-g>",
+  { desc = "Select current word for immediate replacement", noremap = true }
+)
+
+vim.keymap.set("n", "<leader>K", "<Nop>")
+vim.keymap.set("n", "U", "<c-u>zz")
+vim.keymap.set("n", "D", "<c-d>zz")
+
+vim.keymap.set("n", "<leader>fp", "0<c-g>", { desc = "Show full file path" })
+
+-- move lines
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
+-- Alt+Arrow keys to move lines up/down (exactly like VS Code)
+vim.keymap.set("n", "<A-Up>", "<cmd>m .-2<CR>==", { desc = "Move line up", silent = true })
+vim.keymap.set("n", "<A-Down>", "<cmd>m .+1<CR>==", { desc = "Move line down", silent = true })
+vim.keymap.set("i", "<A-Up>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up", silent = true })
+vim.keymap.set("i", "<A-Down>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
+vim.keymap.set("v", "<A-Up>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "<A-Down>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+-- join lines
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- -- chatgpt
+-- vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })
+-- vim.keymap.set("n", "<leader>gpa", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Act As" })
+-- vim.keymap.set("n", "<leader>gpe", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "ChatGPT Edit With Instructions" })
+-- vim.keymap.set("n", "<leader>gpc", "<cmd>ChatGPTCompleteCode<cr>", { desc = "ChatGPT Complete Code" })
+-- vim.keymap.set("n", "<leader>gpf", "<cmd>ChatGPTRun fix_bugs<cr>", { desc = "ChatGPT Fix Bugs" })
+-- vim.keymap.set("n", "<leader>gpx", "<cmd>ChatGPTRun explain_code<cr>", { desc = "ChatGPT Fix Bugs" })
+
+-- markdown
+vim.keymap.set(
+  "n",
+  "<leader>da",
+  '<cmd>setlocal formatoptions-=a<cr><cmd>setlocal textwidth=0<cr><cmd>echo "Auto-wrapping disabled"<cr>',
+  { desc = "Disable auto wrap" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>ea",
+  '<cmd>setlocal formatoptions+=a<cr><cmd>setlocal textwidth=80<cr><cmd>echo "Auto-wrapping enabled"<cr>',
+  { desc = "Enable auto wrap" }
+)
+
+vim.keymap.set("v", "<leader>mb", "di****<esc>hhp", { desc = "Auto bold" })
+vim.keymap.set("v", "<leader>mi", "di**<esc>hp", { desc = "Auto italic" })
+vim.keymap.set("v", "<leader>ml", "di[]()<esc>hhhpllli", { desc = "Auto link" })
+vim.keymap.set("v", "<leader>mc", "di``<esc>hp", { desc = "Auto backtick" })
+
+vim.keymap.set("n", "<leader>bw", "<cmd>bufdo bwipeout<cr>", { desc = "Close all buffers" })
+
+-- jumps
+vim.keymap.set("n", "<leader>jt", "<cmd>/template:<cr><cmd>nohl<cr>", { desc = "Jump to template" })
+vim.keymap.set("n", "<leader>js", "<cmd>/style.:<cr><cmd>nohl<cr>", { desc = "Jump to styles" })
+vim.keymap.set("n", "<leader>jc", "<cmd>/Component {<cr><cmd>nohl<cr>", { desc = "Jump to component" })
+
+-- harpoon - safely load
+vim.keymap.set("n", "<leader>ha", function()
+  require("harpoon.mark").add_file()
+end, { desc = "Harpoon add file" })
+
+vim.keymap.set("n", "<leader>h", function()
+  require("harpoon.ui").toggle_quick_menu()
+end, { desc = "Harpoon menu" })
+
+vim.keymap.set("n", "<leader>hl", function()
+  require("harpoon.ui").nav_next()
+end, { desc = "Harpoon next" })
+
+vim.keymap.set("n", "<leader>hh", function()
+  require("harpoon.ui").nav_next()
+end, { desc = "Harpoon next" })
+
+-- undotree - safely load
+vim.keymap.set("n", "<leader>ut", function()
+  vim.cmd.UndotreeToggle()
+end, { desc = "Undo tree" })
+
+-- telescope - safely load
+vim.keymap.set("n", "<leader>?", function()
+  require("telescope.builtin").oldfiles()
+end, { desc = "Find recently opened files" })
+
+vim.keymap.set("n", "<leader>sd", function()
+  require("telescope.builtin").diagnostics()
+end, { desc = "Search diagnostics" })
+
+vim.keymap.set("n", "<leader>jl", function()
+  require("telescope.builtin").jumplist()
+end, { desc = "Jump list" })
+
+vim.keymap.set("n", "<leader>km", function()
+  require("telescope.builtin").keymaps()
+end, { desc = "Keymaps" })
+
+vim.keymap.set("n", "<leader>rg", function()
+  require("telescope.builtin").registers()
+end, { desc = "Registers" })
+
+vim.keymap.set("n", "<leader>ht", function()
+  require("telescope.builtin").help_tags()
+end, { desc = "Help tags" })
+
+-- ufo - safely load
+vim.keymap.set("n", "zR", function()
+  require("ufo").openAllFolds()
+end, { desc = "Open all folds" })
+
+vim.keymap.set("n", "zM", function()
+  require("ufo").closeAllFolds()
+end, { desc = "Close all folds" })
+
+-- Improved file finder
+vim.keymap.set("n", "<leader>ff", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "🔍 Find Files",
+    find_command = {'rg', '--files', '--hidden', '--glob', '!.git/*'},
+    layout_strategy = 'horizontal',
+    layout_config = {
+      horizontal = {
+        preview_width = 0.5,
+        results_width = 0.5,
+      },
+    },
+    sorting_strategy = 'ascending',
+    path_display = {'smart'},
+  })
+end, { desc = "Find files" })
+
+-- Buffer navigation (Lualine buffers style)
+vim.keymap.set("n", "<C-Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<C-S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>bD", "<cmd>bd!<cr>", { desc = "Force close buffer" })
+vim.keymap.set("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })
+vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
+-- Quick buffer switching with numbers using Lualine
+vim.keymap.set("n", "<leader>1", "<cmd>LualineBuffersJump 1<cr>", { desc = "Go to buffer 1" })
+vim.keymap.set("n", "<leader>2", "<cmd>LualineBuffersJump 2<cr>", { desc = "Go to buffer 2" })
+vim.keymap.set("n", "<leader>3", "<cmd>LualineBuffersJump 3<cr>", { desc = "Go to buffer 3" })
+vim.keymap.set("n", "<leader>4", "<cmd>LualineBuffersJump 4<cr>", { desc = "Go to buffer 4" })
+vim.keymap.set("n", "<leader>5", "<cmd>LualineBuffersJump 5<cr>", { desc = "Go to buffer 5" })
+
