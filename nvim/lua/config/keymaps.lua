@@ -4,6 +4,8 @@
 
 -- Select All with Ctrl + A
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all text" })
+vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select all text" })
+vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { desc = "Select all text" })
 
 -- Backspace as Delete in Normal Mode
 vim.keymap.set("v", "<BS>", '"_d', { desc = "Delete selection without copying" })
@@ -90,29 +92,29 @@ vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.UndotreeToggle()
 end, { desc = "Undo tree" })
 
--- telescope - safely load
+-- snacks picker - replacing telescope
 vim.keymap.set("n", "<leader>?", function()
-  require("telescope.builtin").oldfiles()
+  Snacks.picker.recent()
 end, { desc = "Find recently opened files" })
 
 vim.keymap.set("n", "<leader>sd", function()
-  require("telescope.builtin").diagnostics()
+  Snacks.picker.diagnostics()
 end, { desc = "Search diagnostics" })
 
 vim.keymap.set("n", "<leader>jl", function()
-  require("telescope.builtin").jumplist()
+  Snacks.picker.jumps()
 end, { desc = "Jump list" })
 
 vim.keymap.set("n", "<leader>km", function()
-  require("telescope.builtin").keymaps()
+  Snacks.picker.keymaps()
 end, { desc = "Keymaps" })
 
 vim.keymap.set("n", "<leader>rg", function()
-  require("telescope.builtin").registers()
+  Snacks.picker.registers()
 end, { desc = "Registers" })
 
 vim.keymap.set("n", "<leader>ht", function()
-  require("telescope.builtin").help_tags()
+  Snacks.picker.help()
 end, { desc = "Help tags" })
 
 -- ufo - safely load
@@ -124,22 +126,108 @@ vim.keymap.set("n", "zM", function()
   require("ufo").closeAllFolds()
 end, { desc = "Close all folds" })
 
--- Improved file finder
+-- snacks explorer
+vim.keymap.set("n", "<leader>e", function()
+  require("snacks").explorer()
+end, { desc = "Explorer" })
+
+vim.keymap.set("n", "<leader>fe", function()
+  require("snacks").explorer.reveal()
+end, { desc = "Reveal in Explorer" })
+
+-- Improved file finder with snacks
 vim.keymap.set("n", "<leader>ff", function()
-  require("telescope.builtin").find_files({
-    prompt_title = "🔍 Find Files",
-    find_command = {'rg', '--files', '--hidden', '--glob', '!.git/*'},
-    layout_strategy = 'horizontal',
-    layout_config = {
-      horizontal = {
-        preview_width = 0.5,
-        results_width = 0.5,
-      },
-    },
-    sorting_strategy = 'ascending',
-    path_display = {'smart'},
-  })
+  Snacks.picker.files({ hidden = true })
 end, { desc = "Find files" })
+
+-- Additional snacks pickers
+vim.keymap.set("n", "<leader><space>", function()
+  Snacks.picker.smart()
+end, { desc = "Smart Find Files" })
+
+vim.keymap.set("n", "<leader>,", function()
+  Snacks.picker.buffers()
+end, { desc = "Buffers" })
+
+vim.keymap.set("n", "<leader>/", function()
+  Snacks.picker.grep()
+end, { desc = "Grep" })
+
+vim.keymap.set("n", "<leader>:", function()
+  Snacks.picker.command_history()
+end, { desc = "Command History" })
+
+vim.keymap.set("n", "<leader>fb", function()
+  Snacks.picker.buffers()
+end, { desc = "Buffers" })
+
+vim.keymap.set("n", "<leader>fg", function()
+  Snacks.picker.git_files()
+end, { desc = "Git Files" })
+
+vim.keymap.set("n", "<leader>fr", function()
+  Snacks.picker.recent()
+end, { desc = "Recent Files" })
+
+vim.keymap.set("n", "<leader>sb", function()
+  Snacks.picker.lines()
+end, { desc = "Buffer Lines" })
+
+vim.keymap.set("n", "<leader>sg", function()
+  Snacks.picker.grep()
+end, { desc = "Grep" })
+
+vim.keymap.set("n", "<leader>sw", function()
+  Snacks.picker.grep_word()
+end, { desc = "Grep Word" })
+
+vim.keymap.set("n", "<leader>sc", function()
+  Snacks.picker.command_history()
+end, { desc = "Command History" })
+
+vim.keymap.set("n", "<leader>sC", function()
+  Snacks.picker.commands()
+end, { desc = "Commands" })
+
+vim.keymap.set("n", "<leader>sD", function()
+  Snacks.picker.diagnostics_buffer()
+end, { desc = "Buffer Diagnostics" })
+
+vim.keymap.set("n", "<leader>sh", function()
+  Snacks.picker.help()
+end, { desc = "Help Pages" })
+
+vim.keymap.set("n", "<leader>sH", function()
+  Snacks.picker.highlights()
+end, { desc = "Highlights" })
+
+vim.keymap.set("n", "<leader>sj", function()
+  Snacks.picker.jumps()
+end, { desc = "Jumps" })
+
+vim.keymap.set("n", "<leader>sk", function()
+  Snacks.picker.keymaps()
+end, { desc = "Keymaps" })
+
+vim.keymap.set("n", "<leader>sm", function()
+  Snacks.picker.marks()
+end, { desc = "Marks" })
+
+vim.keymap.set("n", "<leader>sq", function()
+  Snacks.picker.qflist()
+end, { desc = "Quickfix List" })
+
+vim.keymap.set("n", "<leader>sR", function()
+  Snacks.picker.resume()
+end, { desc = "Resume" })
+
+vim.keymap.set("n", "<leader>su", function()
+  Snacks.picker.undo()
+end, { desc = "Undo History" })
+
+vim.keymap.set("n", "<leader>uC", function()
+  Snacks.picker.colorschemes()
+end, { desc = "Colorschemes" })
 
 -- Buffer navigation (Lualine buffers style)
 vim.keymap.set("n", "<C-Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })

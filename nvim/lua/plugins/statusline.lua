@@ -83,9 +83,8 @@ return {
         theme = custom_theme,
         -- Use powerline symbols for separators
         component_separators = { left = "", right = "" }, -- Adjusted for better visual flow
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "Outline", "neo-tree" },
-        ignore_focus = { "neo-tree" },
+        -- section_separators = { left = "", right = "" },
+        disabled_filetypes = { "alpha", "Outline" },
         globalstatus = true,
       },
       sections = {
@@ -254,22 +253,5 @@ return {
       },
     })
 
-    -- Disable statusline for Neo-tree windows
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = { "neo-tree" },
-      callback = function()
-        vim.opt_local.laststatus = 0
-        vim.opt_local.statusline = ""
-      end,
-    })
-
-    -- Re-enable statusline when leaving Neo-tree
-    vim.api.nvim_create_autocmd({ "BufEnter" }, {
-      callback = function()
-        if vim.bo.filetype ~= "neo-tree" then
-          vim.opt.laststatus = 3 -- Global statusline
-        end
-      end,
-    })
   end,
 }
