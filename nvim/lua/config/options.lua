@@ -7,6 +7,10 @@
 if vim.fn.has("win32") == 1 then
   vim.g.loaded_man = 1
 end
+
+-- Disable netrw (file explorer) from opening automatically
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 
 vim.opt.nu = true

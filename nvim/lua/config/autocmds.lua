@@ -23,6 +23,23 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 --   end,
 -- })
 
+-- Auto-open Snacks explorer when starting nvim with a directory
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local arg = vim.fn.argv(0)
+    if arg and vim.fn.isdirectory(arg) == 1 then
+      -- Check if Snacks is available
+      local ok, snacks = pcall(require, "snacks")
+      if ok then
+        -- Small delay to ensure everything is loaded
+        vim.defer_fn(function()
+          snacks.explorer()
+        end, 100)
+      end
+    end
+  end,
+})
+
 -- Disable completion for Markdown files (blink.cmp)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
