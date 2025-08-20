@@ -45,9 +45,12 @@ return {
               preset = "sidebar",
               preview = "main", -- show preview in main window
               position = "left",
+              layout = {
+                width = 25,
+              },
             },
 
-            focus = "input", -- focus on search input when opening
+            focus = "list", -- focus on search input when opening
             auto_close = false, -- don't auto close
             jump = { close = false }, -- don't close when jumping to files
 

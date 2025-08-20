@@ -241,6 +241,15 @@ return {
             },
           },
         },
+        lualine_y = {
+          {
+            function()
+              return " VERSE"
+            end,
+            separator = { left = "", right = "" },
+            color = { fg = "#61ffca", bg = "#29263c" },
+          },
+        },
         lualine_z = {
           {
             function()
@@ -252,6 +261,5 @@ return {
         },
       },
     })
-
   end,
 }

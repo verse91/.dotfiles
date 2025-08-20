@@ -22,6 +22,7 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       table.insert(opts.ensure_installed, "prettierd")
+      table.insert(opts.ensure_installed, "clang-format")
     end,
   },
   {
@@ -30,6 +31,8 @@ return {
     opts = {
       formatters_by_ft = {
         ["javascript"] = { { "prettierd", "prettier" } },
+        ["cpp"] = { "clang-format" },
+        ["c"] = { "clang-format" },
         ["javascriptreact"] = { { "prettierd", "prettier" } },
         ["typescript"] = { { "prettierd", "prettier" } },
         ["typescriptreact"] = { { "prettierd", "prettier" } },

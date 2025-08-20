@@ -243,3 +243,32 @@ vim.keymap.set("n", "<leader>3", "<cmd>LualineBuffersJump 3<cr>", { desc = "Go t
 vim.keymap.set("n", "<leader>4", "<cmd>LualineBuffersJump 4<cr>", { desc = "Go to buffer 4" })
 vim.keymap.set("n", "<leader>5", "<cmd>LualineBuffersJump 5<cr>", { desc = "Go to buffer 5" })
 
+-- Window splits - previous buffer in original window, current buffer in new split
+vim.keymap.set("n", "<leader>|", function()
+  local prev_buf = vim.fn.bufnr("#") -- Get previous buffer
+  
+  -- If there's a valid previous buffer
+  if prev_buf > 0 and prev_buf ~= vim.api.nvim_get_current_buf() then
+    vim.cmd("vsplit") -- Create vertical split (current buffer goes to right)
+    vim.cmd("wincmd h") -- Move to left window
+    vim.api.nvim_set_current_buf(prev_buf) -- Set previous buffer in left window
+    vim.cmd("wincmd l") -- Move back to right window
+  else
+    vim.cmd("vsplit") -- Fallback to normal split
+  end
+end, { desc = "Split vertical: previous left, current right" })
+
+vim.keymap.set("n", "<leader>_", function()
+  local prev_buf = vim.fn.bufnr("#") -- Get previous buffer
+  
+  -- If there's a valid previous buffer
+  if prev_buf > 0 and prev_buf ~= vim.api.nvim_get_current_buf() then
+    vim.cmd("split") -- Create horizontal split (current buffer goes to bottom)
+    vim.cmd("wincmd k") -- Move to top window
+    vim.api.nvim_set_current_buf(prev_buf) -- Set previous buffer in top window
+    vim.cmd("wincmd j") -- Move back to bottom window
+  else
+    vim.cmd("split") -- Fallback to normal split
+  end
+end, { desc = "Split horizontal: previous top, current bottom" })
+
