@@ -1,0 +1,17 @@
+{
+  "name": "cpp-snippets",
+  "version": "1.0.0",
+  "description": "C++ snippets for competitive programming",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "cpp",
+        "path": "./cpp.json"
+      },
+      {
+        "language": "c",
+        "path": "./cpp.json"
+      }
+    ]
+  }
+}
