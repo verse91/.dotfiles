@@ -1,7 +1,7 @@
 
 # # Auto Starship
 eval "$(starship init zsh)"
-
+eval "$(zoxide init zsh)"
 # # Auto Tmux
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach-session -t main || tmux new-session -s main
@@ -95,12 +95,14 @@ plugins=(git
 	docker-compose
 	history
 	rsync
-	safe-paste
-	zsh-autosuggestions
-	zsh-autocomplete
-    zsh-syntax-highlighting)
+	safe-paste)
 
 source $ZSH/oh-my-zsh.sh
+
+# Load zsh plugins installed via pacman/yay
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -129,13 +131,11 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-cursorRunApp() {
-~/Downloads/Cursor-0.50.5-x86_64.AppImage.zs-old &
-}
-alias cursor="cursorRunApp"
+# alias ohmyzsh="mate ~/.oh-my-zs
 alias nv="nvim"
 alias gr="go run"
+alias cls="clear"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -147,4 +147,4 @@ alias gr="go run"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
+export PATH=$PATH:$(go env GOPATH)/bin
