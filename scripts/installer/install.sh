@@ -50,7 +50,7 @@ backup_file() {
 create_symlink() {
     local src="$1"
     local dest="$2"
-    
+
     if [ -e "$dest" ]; then
         if [ -L "$dest" ]; then
             local current_target
@@ -89,17 +89,17 @@ command_exists() {
 # Install required packages based on OS
 install_packages() {
     case $OS in
-        "Arch Linux")
-            if command_exists pacman; then
-                log_info "Installing packages for Arch Linux..."
-                if [ -f "$DOTFILES_DIR/packages/pacman.txt" ]; then
-                    sudo pacman -Syu --needed - < "$DOTFILES_DIR/packages/pacman.txt"
-                fi
+    "Arch Linux")
+        if command_exists pacman; then
+            log_info "Installing packages for Arch Linux..."
+            if [ -f "$DOTFILES_DIR/packages/pacman.txt" ]; then
+                sudo pacman -Syu --needed - <"$DOTFILES_DIR/packages/pacman.txt"
             fi
-            ;;
-        *)
-            log_info "Package installation skipped for OS: $OS"
-            ;;
+        fi
+        ;;
+    *)
+        log_info "Package installation skipped for OS: $OS"
+        ;;
     esac
 }
 
@@ -107,8 +107,6 @@ install_packages() {
 setup_shell() {
     log_info "Setting up shell configurations..."
     create_symlink "$DOTFILES_DIR/shell/.zshrc" "$HOME/.zshrc"
-    create_symlink "$DOTFILES_DIR/shell/.bashrc" "$HOME/.bashrc"
-    create_symlink "$DOTFILES_DIR/shell/.p10k.zsh" "$HOME/.p10k.zsh"
 }
 
 # Setup Hyprland configurations
@@ -122,20 +120,13 @@ setup_hyprland() {
 # Setup terminal configurations
 setup_terminals() {
     log_info "Setting up terminal configurations..."
-    # Ghostty
     create_symlink "$DOTFILES_DIR/config/ghostty/config" "$HOME/.config/ghostty/config"
-    
-    # Kitty
-    create_symlink "$DOTFILES_DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-    create_symlink "$DOTFILES_DIR/config/kitty/theme.conf" "$HOME/.config/kitty/theme.conf"
 }
 
 # Setup Neovim configuration
 setup_neovim() {
     log_info "Setting up Neovim configuration..."
-    create_symlink "$DOTFILES_DIR/config/nvim/init.lua" "$HOME/.config/nvim/init.lua"
-    create_symlink "$DOTFILES_DIR/config/nvim/lazy-lock.json" "$HOME/.config/nvim/lazy-lock.json"
-    create_symlink "$DOTFILES_DIR/config/nvim/lua" "$HOME/.config/nvim/lua"
+    create_symlink "$DOTFILES_DIR/config/nvim/" "$HOME/.config/nvim/"
 }
 
 # Setup system tools
@@ -143,7 +134,7 @@ setup_system_tools() {
     log_info "Setting up system tools..."
     # Dunst
     create_symlink "$DOTFILES_DIR/config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
-    
+
     # Waybar
     create_symlink "$DOTFILES_DIR/config/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc"
     create_symlink "$DOTFILES_DIR/config/waybar/style.css" "$HOME/.config/waybar/style.css"
@@ -157,17 +148,31 @@ setup_starship() {
 
 # Main function
 main() {
-    log_info "Starting dotfiles setup..."
-    
-    # Create backup directory
+    # Get the directory of the current script
+    BASE_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")/../../")
+
+    # Source helper file
+    source $BASE_DIR/scripts/installer/helper.sh
+
+    # Trap for unexpected exits
+    trap 'trap_message' INT TERM
+
+    # Script start
+    log_message "Init setup started"
+    log_message "This .dotfiles is originally from Simple-Hyprland (https://github.com/gaurav23b/simple-hyprland)"
+    echo "---------------"
+
     setup_backup_dir
-    
+
+    log_info "Starting dotfiles setup..."
+
     # Detect OS
     detect_os
-    
+
     # Install required packages
+    run_script "init.sh" "Init Setup"
     install_packages
-    
+
     # Setup all configurations
     setup_shell
     setup_hyprland
@@ -175,7 +180,7 @@ main() {
     setup_neovim
     setup_system_tools
     setup_starship
-    
+
     log_success "Dotfiles setup completed successfully!"
     log_info "Note: You may need to restart your shell or window manager for all changes to take effect."
 }
