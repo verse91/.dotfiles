@@ -21,12 +21,6 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-# App launchers
-cursorRunApp() {
-  ~/Downloads/Cursor-0.50.5-x86_64.AppImage &
-}
-alias cursor="cursorRunApp"
-
 # Aliases
 alias nv="nvim"
 alias gr="go run"
