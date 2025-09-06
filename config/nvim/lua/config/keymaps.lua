@@ -25,15 +25,27 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
+-- Normal mode
+vim.keymap.set("n", "J", "^", { noremap = true })
+vim.keymap.set("n", "L", "$", { noremap = true })
+vim.keymap.set("n", "i", "<Up>", { noremap = true })
+vim.keymap.set("n", "j", "<Left>", { noremap = true })
+vim.keymap.set("n", "k", "<Down>", { noremap = true })
+vim.keymap.set("n", "l", "<Right>", { noremap = true })
+
+-- Visual mode
+vim.keymap.set("v", "i", "<Up>", { noremap = true })
+vim.keymap.set("v", "j", "<Left>", { noremap = true })
+vim.keymap.set("v", "k", "<Down>", { noremap = true })
+vim.keymap.set("v", "l", "<Right>", { noremap = true })
 -- Alt+Arrow keys to move lines up/down (exactly like VS Code)
-vim.keymap.set("n", "<A-Up>", "<cmd>m .-2<CR>==", { desc = "Move line up", silent = true })
-vim.keymap.set("n", "<A-Down>", "<cmd>m .+1<CR>==", { desc = "Move line down", silent = true })
-vim.keymap.set("i", "<A-Up>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up", silent = true })
-vim.keymap.set("i", "<A-Down>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
-vim.keymap.set("v", "<A-Up>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
-vim.keymap.set("v", "<A-Down>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set("n", "<A-i>", "<cmd>m .-2<CR>==", { desc = "Move line up", silent = true })
+vim.keymap.set("n", "<A-k>", "<cmd>m .+1<CR>==", { desc = "Move line down", silent = true })
+vim.keymap.set("i", "<A-i>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up", silent = true })
+vim.keymap.set("i", "<A-k>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
+vim.keymap.set("v", "<A-i>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "<A-k>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
 -- join lines
-vim.keymap.set("n", "J", "mzJ`z")
 
 -- -- chatgpt
 -- vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })

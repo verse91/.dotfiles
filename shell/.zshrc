@@ -2,6 +2,7 @@
 # # Auto Starship
 eval "$(starship init zsh)"
 
+eval "$(zoxide init zsh)"
 # # Auto Tmux
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach-session -t main || tmux new-session -s main
@@ -136,15 +137,27 @@ cursorRunApp() {
 alias cursor="cursorRunApp"
 alias nv="nvim"
 alias gr="go run"
+alias rm="trash"
+alias se="sudoedit"
+alias ai="tgpt"
+alias cls="clear"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 . "$HOME/.local/bin/env"
 
+# . "$HOME/.cargo/env"
 # bun completions
 [ -s "/home/verse/.bun/_bun" ] && source "/home/verse/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export XDG_CONFIG_HOME="$HOME/.config"
+export CHROMIUM_FLAGS="--ozone-platform=wayland"
+export LANG=en_US.UTF-8
+export LC_TIME=vi_VN.UTF-8
+export LC_ALL=en_US.UTF-8
+export EDITOR=nvim

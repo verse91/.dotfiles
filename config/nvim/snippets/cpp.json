@@ -56,7 +56,7 @@
             "#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt\")",
             "#include <iostream>",
             "#include <vector>",
-            "#define file(a) freopen(a \".inp\",\"r\",stdin); freopen(a \".out\",\"w\",stdout);",
+            "#define FILE freopen( \"i.txt\",\"r\",stdin); freopen(\"o.txt\",\"w\",stdout);",
             "#define ll long long",
             "#define endl '\\n'",
             "",

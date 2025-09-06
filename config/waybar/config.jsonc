@@ -39,7 +39,7 @@
     },
 
     "clock": {
-        "format": "{:%A    %B-%d-%Y    %I:%M:%S %p}",
+        "format": "{:%A    %d-%m-%Y    %I:%M:%S %p}",
         "interval": 1,
         "rotate": 0,
         "tooltip-format": "<tt>{calendar}</tt>",

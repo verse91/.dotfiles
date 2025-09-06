@@ -1,8 +1,3 @@
--- -- Disabled blink.cmp configuration (using nvim-cmp instead)
--- return {
---   -- Empty table to prevent nil return error
--- }
-
 return {
   {
     "saghen/blink.cmp",
@@ -114,27 +109,30 @@ return {
         },
       },
       sources = {
-        default = { "snippets", "lsp", "path", "buffer" },
+        default = { "snippets", "lazydev", "lsp", "path", "buffer" }, -- Đặt snippets lên đầu
         providers = {
-          snippets = {
-            name = "Snippets",
-            priority = 1000,
-            opts = {
-              friendly_snippets = true,
-              search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-            },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- Make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 90, -- Giảm xuống để snippets có priority cao hơn
           },
           lsp = {
-            name = "LSP",
-            priority = 800,
+            min_keyword_length = 2, -- Number of characters to trigger provider
+            score_offset = 0, -- Boost/penalize the score of the items
           },
           path = {
-            name = "Path", 
-            priority = 600,
+            min_keyword_length = 0,
+            score_offset = -10, -- Giảm priority của path
+          },
+          snippets = {
+            min_keyword_length = 1, -- Giảm xuống để trigger sớm hơn
+            score_offset = 100, -- Boost snippets lên cao nhất
           },
           buffer = {
-            name = "Buffer",
-            priority = 400,
+            min_keyword_length = 4,
+            max_items = 5,
+            score_offset = -20, -- Giảm priority của buffer
           },
         },
       },
