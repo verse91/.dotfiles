@@ -1,66 +1,25 @@
-# Personal Dotfiles
 
-A carefully curated collection of dotfiles for my Linux development environment.
+# Hyprland Dotfiles
 
-## Components
+This repo is based on [Simple-Hyprland](https://github.com/gaurav23b/simple-hyprland).
 
-### Shell Environment
-- Zsh with Oh My Zsh and Powerlevel10k
-- Bash configuration
-- Starship prompt
+## Quick Installation 🚀
 
-### Window Manager
-- Hyprland - Wayland compositor
-- Hypridle - Idle management
-- Hyprlock - Screen locking
+### 1. Clone the repository
+```bash
+git clone https://github.com/verse91/.dotfiles.git ~/.dotfiles
+````
 
-### Development Tools
-- Neovim with custom configuration
-- Terminal emulators:
-  - Ghostty
-  - Kitty
-
-### System Tools
-- Dunst - Notification daemon
-- Waybar - Status bar
-
-## Quick Start
+### 2. Navigate to the installer directory
 
 ```bash
-# Clone the repository
-git clone https://github.com/verse91/.dotfiles.git ~/.dotfiles
-
-# Run the bootstrap script
-cd ~/.dotfiles
-./scripts/bootstrap.sh
+cd ~/.dotfiles/scripts/installer
 ```
 
-## Structure
+### 3. Run the installation script
 
-```
-~/.dotfiles/
-├── config/           # Application configurations
-├── packages/         # Package lists
-├── scripts/         # Utility scripts
-├── shell/           # Shell configurations
-└── themes/          # Theme configurations
+```bash
+sudo sh install.sh
 ```
 
-## Features
 
-- Automated setup via bootstrap script
-- Backup of existing configurations
-- Package management for Arch Linux
-- Symlink-based configuration management
-- Separation of sensitive information
-
-## Customization
-
-1. Fork this repository
-2. Modify configurations as needed
-3. Update packages/pacman.txt for new dependencies
-4. Update bootstrap.sh for new configurations
-
-## License
-
-MIT License - See LICENSE file for details
