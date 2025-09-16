@@ -28,6 +28,7 @@ alias rm="trash"
 alias se="sudoedit"
 alias ai="tgpt"
 alias cls="clear"
+alias lc="locate"
 
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
