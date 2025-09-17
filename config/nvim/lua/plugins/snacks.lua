@@ -88,6 +88,9 @@ return {
       picker = {
         enabled = true,
         ui_select = true,
+        win = {
+          border = "rounded",
+        },
 
         sources = {
           explorer = {

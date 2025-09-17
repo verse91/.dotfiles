@@ -33,6 +33,20 @@ return {
       vim.defer_fn(function()
         -- Only customize selection color - keep everything else from Aura theme
         vim.api.nvim_set_hl(0, "Visual", { bg = "#4a4a4a" })
+        
+        -- Apply blink.cmp highlights
+        vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#110f18", fg = "#edecee" })
+        vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#110f18", fg = "#a277ff" })
+        vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#3d375e", fg = "#edecee", bold = true })
+        vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#110f18", fg = "#edecee" })
+        vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#110f18", fg = "#61ffca" })
+        vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "#110f18", fg = "#edecee" })
+        vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "#110f18", fg = "#ffca85" })
+        vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#110f18", fg = "#a277ff" })
+        
+        -- Ensure global floating window settings have borders
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#110f18" })
+        vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#110f18", fg = "#a277ff", bold = true })
       end, 100)
     end,
   },

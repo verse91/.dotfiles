@@ -29,9 +29,11 @@ alias se="sudoedit"
 alias ai="tgpt"
 alias cls="clear"
 alias lc="locate"
-
+alias lg="lazygit"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+# uv
+export PATH="$HOME/.local/bin:$PATH"
 
 # Bun
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -46,3 +48,4 @@ export CHROMIUM_FLAGS="--ozone-platform=wayland"
 export LANG=en_US.UTF-8
 export LC_TIME=vi_VN.UTF-8
 export EDITOR=nvim
+eval "$(uv generate-shell-completion zsh)"

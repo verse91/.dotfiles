@@ -103,10 +103,15 @@ return {
           },
         },
         -- Python inlay hints - disable all
+
         pyright = {
+          before_init = function(params, config)
+            config.settings.python.pythonPath = vim.fn.expand("./.uv/venv/bin/python")
+          end,
           settings = {
             python = {
               analysis = {
+                extraPaths = { vim.fn.expand("./.uv/venv/lib/python3.13/site-packages") },
                 inlayHints = {
                   variableTypes = false,
                   functionReturnTypes = false,
@@ -115,6 +120,7 @@ return {
             },
           },
         },
+
         -- C/C++ inlay hints - disable all
         clangd = {
           cmd = {

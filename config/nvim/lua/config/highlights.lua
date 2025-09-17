@@ -4,6 +4,10 @@ local M = {}
 function M.setup()
   -- Delay execution to ensure colorscheme is loaded
   vim.defer_fn(function()
+    -- Only apply if we have a colorscheme loaded
+    if not vim.g.colors_name then
+      return
+    end
     -- Blink-cmp completion menu highlights (Aura theme)
     vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#110f18", fg = "#edecee" })
     vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#110f18", fg = "#a277ff" })
@@ -58,7 +62,7 @@ function M.setup()
     vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { fg = "#a277ff", bold = true })
     vim.api.nvim_set_hl(0, "BlinkCmpSource", { fg = "#6272a4", italic = true })
     vim.api.nvim_set_hl(0, "BlinkCmpKind", { fg = "#ffca85" })
-  end, 100)
+  end, 200)
 
   -- Kind-specific highlights (Aura colors)
   vim.api.nvim_set_hl(0, "CmpKindSnippet", { fg = "#a277ff", bold = true })
@@ -100,11 +104,21 @@ end
 -- Auto-apply highlights when colorscheme changes
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
-    M.setup()
+    -- Add a small delay to ensure colorscheme is fully loaded
+    vim.defer_fn(function()
+      M.setup()
+    end, 50)
   end,
 })
 
--- Apply highlights immediately
-M.setup()
+-- Apply highlights after everything is loaded
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    -- Add a delay to ensure everything is fully loaded
+    vim.defer_fn(function()
+      M.setup()
+    end, 100)
+  end,
+})
 
 return M

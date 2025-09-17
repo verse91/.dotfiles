@@ -2,6 +2,10 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      fuzzy = {
+        -- Force use of lua implementation to avoid conflicts with fff.nvim
+        implementation = "lua",
+      },
       keymap = {
         preset = "enter", -- Use enter preset as base
         -- Custom Tab behavior to match your nvim-cmp config
@@ -41,53 +45,9 @@ return {
             enabled = true,
           },
         },
-        list = {
-          selection = { kind = "auto_select" }, -- Auto-select first item without inserting
-        },
-        trigger = {
-          prefetch_on_insert = true,
-        },
         menu = {
-          auto_show = true,
           border = "rounded",
           winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-          draw = {
-            treesitter = { "lsp" },
-            columns = {
-              { "kind_icon", "label", gap = 1 },
-              { "kind", "source_name" },
-            },
-            components = {
-              kind_icon = {
-                ellipsis = false,
-                text = function(ctx)
-                  local kind_icon = ctx.kind_icon or ""
-                  return kind_icon .. " "
-                end,
-                highlight = function(ctx)
-                  return "CmpKind" .. ctx.kind
-                end,
-              },
-              label = {
-                text = function(ctx)
-                  return ctx.label
-                end,
-                highlight = "BlinkCmpLabel",
-              },
-              kind = {
-                text = function(ctx)
-                  return ctx.kind
-                end,
-                highlight = "BlinkCmpKind",
-              },
-              source_name = {
-                text = function(ctx)
-                  return ctx.source_name
-                end,
-                highlight = "BlinkCmpSource",
-              },
-            },
-          },
         },
         documentation = {
           auto_show = true,
