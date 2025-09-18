@@ -1,18 +1,28 @@
 return {
-  {
-    "vuki656/package-info.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    keys = {
-      {
-        "<leader>ns",
-        "<cmd>lua require('package-info').show()<cr>",
-        silent = true,
-        noremap = true,
-        desc = "Show Package Info",
-      },
+  "vuki656/package-info.nvim",
+  dependencies = { "MunifTanjim/nui.nvim" },
+  keys = {
+    {
+      "<leader>ns",
+      "<cmd>lua require('package-info').show()<cr>",
+      desc = "Show Package Info",
     },
-    config = function()
-      require("telescope").load_extension("package_info")
-    end,
+    {
+      "<leader>nu",
+      "<cmd>lua require('package-info').update()<cr>",
+      desc = "Update Package",
+    },
+    {
+      "<leader>nd",
+      "<cmd>lua require('package-info').delete()<cr>",
+      desc = "Delete Package",
+    },
   },
+  config = function()
+    require("package-info").setup({
+      -- Không cần Telescope
+      autostart = true,
+      hide_up_to_date = true,
+    })
+  end,
 }
