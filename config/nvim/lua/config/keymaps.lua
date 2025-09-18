@@ -273,7 +273,7 @@ vim.keymap.set("n", "<leader>|", function()
   else
     vim.cmd("vsplit") -- Fallback to normal split
   end
-end, { desc = "Split vertical: previous left, current right" })
+end, { desc = "Split vertical" })
 
 vim.keymap.set("n", "<leader>_", function()
   local prev_buf = vim.fn.bufnr("#") -- Get previous buffer
@@ -287,4 +287,4 @@ vim.keymap.set("n", "<leader>_", function()
   else
     vim.cmd("split") -- Fallback to normal split
   end
-end, { desc = "Split horizontal: previous top, current bottom" })
+end, { desc = "Split horizontal:" })

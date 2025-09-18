@@ -2,7 +2,6 @@ return {
   {
     "folke/which-key.nvim",
     opts = function(_, opts)
-      -- Customize the which-key panel appearance and behavior
       opts.preset = "helix" -- Keeping helix style
       opts.delay = 100 -- delay before showing which-key (in ms)
       opts.sort = { "local", "order", "group", "alphanum", "mod" } -- Control sorting order
