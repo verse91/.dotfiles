@@ -391,6 +391,13 @@ return {
         desc = "Show Notification History",
       },
       {
+        "<leader>nn",
+        function()
+          Snacks.picker.notifications()
+        end,
+        desc = "Search Notification History",
+      },
+      {
         "<leader>bd",
         function()
           Snacks.bufdelete()
