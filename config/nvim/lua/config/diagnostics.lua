@@ -64,17 +64,6 @@ vim.diagnostic.config({
   },
 })
 
--- Enhanced LSP handlers with better icons
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-  title = "󰋽 Hover",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-  title = "󰏪 Signature Help",
-})
-
 -- Custom highlight groups for diagnostics with better colors
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
@@ -157,6 +146,6 @@ local kind_icons = {
 }
 
 -- Apply the icons to completion kinds
-for kind, icon in pairs(kind_icons) do
-  vim.lsp.protocol.CompletionItemKind[kind] = icon .. " " .. kind
+for i, icon in ipairs(kind_icons) do
+  vim.lsp.protocol.CompletionItemKind[i] = icon .. " " .. vim.lsp.protocol.CompletionItemKind[i]
 end
