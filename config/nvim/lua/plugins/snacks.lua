@@ -22,27 +22,24 @@ return {
       toggle = { enabled = true },
       terminal = {
         enabled = true,
-        size = { width = 0.8, height = 0.4 }, -- kích thước cửa sổ
+        size = { width = 0.8, height = 0.4 },
         shell = "pwsh.exe",
         open_mapping = "<c-t>",
         win = {
-          style = "float", -- bắt buộc phải là float
+          style = "float",
           relative = "editor",
-          border = "rounded", -- tùy chọn: "single", "double", "rounded", "solid", "shadow"
+          border = "rounded",
         },
-        enter_insert = true, -- tự động vào insert mode
+        enter_insert = true,
         on_exit = function(job_id, exit_code, event_type)
-          -- Khi terminal thoát, ép job terminate để tránh E948
           vim.fn.jobstop(job_id)
         end,
       },
       words = { enabled = true },
       zen = { enabled = true },
 
-      -- Explorer configuration
       explorer = {
         enabled = true,
-        -- AUTO OPEN: Tự động mở khi chạy nvim với thư mục
         auto_open = function()
           return vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1
         end,
@@ -56,12 +53,9 @@ return {
         watch = true,
         follow_file = true,
 
-        -- Layout: Sidebar bên trái với width tùy chỉnh
-
         focus = "list",
         auto_close = false,
 
-        -- Formatting
         formatters = {
           file = {
             filename_only = true,
@@ -98,7 +92,7 @@ return {
               layout = {
                 preset = "sidebar",
                 position = "left",
-                width = 25, -- FIXED: Width đúng cách
+                width = 25,
                 backdrop = false,
               },
             },
@@ -126,7 +120,7 @@ return {
       {
         "<leader>e",
         function()
-          Snacks.explorer.toggle()
+          Snacks.explorer.open()
         end,
         desc = "Toggle Explorer",
       },
@@ -191,11 +185,11 @@ return {
         desc = "Recent Files",
       },
       {
-        "<leader>fc",
+        "<leader>fi",
         function()
-          Snacks.picker.config_files()
+          Snacks.picker.icons()
         end,
-        desc = "Config Files",
+        desc = "Find icons",
       },
 
       -- === SEARCH PICKERS ===
