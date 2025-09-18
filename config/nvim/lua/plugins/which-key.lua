@@ -45,7 +45,6 @@ return {
         { "<leader>c", group = "Code" },
         { "<leader>d", group = "Debug/Disable" },
         { "<leader>e", group = "Explorer" },
-        { "<leader>f", group = "File/Find" },
         { "<leader>g", group = "Git" },
         { "<leader>h", group = "Harpoon" },
         { "<leader>j", group = "Jump" },
@@ -59,7 +58,6 @@ return {
         { "<leader>x", group = "Diagnostics/Trouble" },
 
         -- Custom key descriptions
-        { "<leader>fp", desc = "Show full file path" },
         { "<leader>bw", desc = "Close all buffers" },
         { "<leader>da", desc = "Disable auto wrap" },
         { "<leader>ea", desc = "Enable auto wrap" },
