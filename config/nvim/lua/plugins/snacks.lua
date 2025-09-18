@@ -384,7 +384,7 @@ return {
         desc = "Toggle Dim",
       },
       {
-        "<leader>un",
+        "<leader>nu",
         function()
           Snacks.notifier.show_history()
         end,
