@@ -3,9 +3,9 @@
 -- Add any additional keymaps here
 
 -- Select All with Ctrl + A
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all text" })
-vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select all text" })
-vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { desc = "Select all text" })
+vim.keymap.set("n", "<C-a>", "ggVG$", { desc = "Select all text" })
+vim.keymap.set("i", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
+vim.keymap.set("v", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
 
 -- Backspace as Delete in Normal Mode
 vim.keymap.set("v", "<BS>", '"_d', { desc = "Delete selection without copying" })
