@@ -157,14 +157,9 @@ vim.keymap.set("n", "<leader>e", function()
   require("snacks").explorer()
 end, { desc = "Explorer" })
 
--- Improved file finder with snacks
-vim.keymap.set("n", "<leader>ff", function()
-  Snacks.picker.files({ hidden = true })
-end, { desc = "Find files" })
-
 -- Additional snacks pickers
 vim.keymap.set("n", "<leader><space>", function()
-  Snacks.picker.smart()
+  Snacks.picker.files({ hidden = true })
 end, { desc = "Smart Find Files" })
 
 vim.keymap.set("n", "<leader>,", function()
@@ -260,6 +255,12 @@ vim.keymap.set("n", "<leader>bD", "<cmd>bd!<cr>", { desc = "Force close buffer" 
 vim.keymap.set("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })
 vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
 
+-- Quick buffer switching with numbers using Lualine
+vim.keymap.set("n", "<leader>1", "<cmd>LualineBuffersJump 1<cr>", { desc = "Go to buffer 1" })
+vim.keymap.set("n", "<leader>2", "<cmd>LualineBuffersJump 2<cr>", { desc = "Go to buffer 2" })
+vim.keymap.set("n", "<leader>3", "<cmd>LualineBuffersJump 3<cr>", { desc = "Go to buffer 3" })
+vim.keymap.set("n", "<leader>4", "<cmd>LualineBuffersJump 4<cr>", { desc = "Go to buffer 4" })
+vim.keymap.set("n", "<leader>5", "<cmd>LualineBuffersJump 5<cr>", { desc = "Go to buffer 5" })
 -- Window splits - previous buffer in original window, current buffer in new split
 vim.keymap.set("n", "<leader>|", function()
   local prev_buf = vim.fn.bufnr("#") -- Get previous buffer

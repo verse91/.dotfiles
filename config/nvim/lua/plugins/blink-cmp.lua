@@ -69,13 +69,12 @@ return {
         },
       },
       sources = {
-        default = { "snippets", "lazydev", "lsp", "path", "buffer" }, -- Đặt snippets lên đầu
+        default = { "snippets", "lazydev", "lsp", "path", "buffer" },
         providers = {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
-            -- Make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 90, -- Giảm xuống để snippets có priority cao hơn
+            score_offset = 90,
           },
           lsp = {
             min_keyword_length = 2, -- Number of characters to trigger provider
@@ -83,16 +82,16 @@ return {
           },
           path = {
             min_keyword_length = 0,
-            score_offset = -10, -- Giảm priority của path
+            score_offset = -10,
           },
           snippets = {
-            min_keyword_length = 1, -- Giảm xuống để trigger sớm hơn
-            score_offset = 100, -- Boost snippets lên cao nhất
+            min_keyword_length = 1,
+            score_offset = 100,
           },
           buffer = {
             min_keyword_length = 4,
             max_items = 5,
-            score_offset = -20, -- Giảm priority của buffer
+            score_offset = -20,
           },
         },
       },
