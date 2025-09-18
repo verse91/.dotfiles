@@ -7,6 +7,8 @@
 -- vim.keymap.set("i", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
 -- vim.keymap.set("v", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
 
+--- NOTE:Maybe this is better but if you copied all text, if text doesnt change,
+--- it will not work, it only works when you changed something
 local function select_all()
   vim.cmd("normal! ggVG$")
 end
@@ -19,6 +21,7 @@ end, { desc = "Select all text" })
 vim.keymap.set("v", "<C-a>", function()
   vim.cmd("normal! ggVG$")
 end, { desc = "Select all text" })
+
 -- Backspace as Delete in Normal Mode
 vim.keymap.set("v", "<BS>", '"_d', { desc = "Delete selection without copying" })
 vim.keymap.set(
@@ -57,7 +60,6 @@ vim.keymap.set("i", "<A-i>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up",
 vim.keymap.set("i", "<A-k>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
 vim.keymap.set("v", "<A-i>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
 vim.keymap.set("v", "<A-k>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
--- join lines
 
 -- -- chatgpt
 -- vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })
@@ -88,12 +90,13 @@ vim.keymap.set("v", "<leader>mc", "di``<esc>hp", { desc = "Auto backtick" })
 
 vim.keymap.set("n", "<leader>bw", "<cmd>bufdo bwipeout<cr>", { desc = "Close all buffers" })
 
--- jumps
+-- jumps (currently not working)
 vim.keymap.set("n", "<leader>jt", "<cmd>/template:<cr><cmd>nohl<cr>", { desc = "Jump to template" })
 vim.keymap.set("n", "<leader>js", "<cmd>/style.:<cr><cmd>nohl<cr>", { desc = "Jump to styles" })
 vim.keymap.set("n", "<leader>jc", "<cmd>/Component {<cr><cmd>nohl<cr>", { desc = "Jump to component" })
 
 -- harpoon - safely load
+-- NOTE: may be this will be useless when you can use <leader> + 1234,...
 vim.keymap.set("n", "<leader>ha", function()
   require("harpoon.mark").add_file()
 end, { desc = "Harpoon add file" })
@@ -154,10 +157,6 @@ vim.keymap.set("n", "<leader>e", function()
   require("snacks").explorer()
 end, { desc = "Explorer" })
 
-vim.keymap.set("n", "<leader>fe", function()
-  require("snacks").explorer.reveal()
-end, { desc = "Reveal in Explorer" })
-
 -- Improved file finder with snacks
 vim.keymap.set("n", "<leader>ff", function()
   Snacks.picker.files({ hidden = true })
@@ -200,6 +199,7 @@ vim.keymap.set("n", "<leader>sg", function()
   Snacks.picker.grep()
 end, { desc = "Grep" })
 
+-- NOTE: this is better than / then type the word IF your cursor is on the word
 vim.keymap.set("n", "<leader>sw", function()
   Snacks.picker.grep_word()
 end, { desc = "Grep Word" })
@@ -210,7 +210,7 @@ end, { desc = "Command History" })
 
 vim.keymap.set("n", "<leader>sC", function()
   Snacks.picker.commands()
-end, { desc = "Commands" })
+end, { desc = "Show all commands" })
 
 vim.keymap.set("n", "<leader>sD", function()
   Snacks.picker.diagnostics_buffer()
@@ -259,12 +259,6 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>bD", "<cmd>bd!<cr>", { desc = "Force close buffer" })
 vim.keymap.set("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })
 vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
--- Quick buffer switching with numbers using Lualine
-vim.keymap.set("n", "<leader>1", "<cmd>LualineBuffersJump 1<cr>", { desc = "Go to buffer 1" })
-vim.keymap.set("n", "<leader>2", "<cmd>LualineBuffersJump 2<cr>", { desc = "Go to buffer 2" })
-vim.keymap.set("n", "<leader>3", "<cmd>LualineBuffersJump 3<cr>", { desc = "Go to buffer 3" })
-vim.keymap.set("n", "<leader>4", "<cmd>LualineBuffersJump 4<cr>", { desc = "Go to buffer 4" })
-vim.keymap.set("n", "<leader>5", "<cmd>LualineBuffersJump 5<cr>", { desc = "Go to buffer 5" })
 
 -- Window splits - previous buffer in original window, current buffer in new split
 vim.keymap.set("n", "<leader>|", function()
