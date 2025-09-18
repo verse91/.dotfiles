@@ -279,6 +279,13 @@ return {
         end,
         desc = "Resume",
       },
+      {
+        "<leader>sz",
+        function()
+          Snacks.picker.zoxide()
+        end,
+        desc = "Zoxide",
+      },
 
       -- === LSP PICKERS ===
       {
