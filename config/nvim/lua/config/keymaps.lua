@@ -3,10 +3,22 @@
 -- Add any additional keymaps here
 
 -- Select All with Ctrl + A
-vim.keymap.set("n", "<C-a>", "ggVG$", { desc = "Select all text" })
-vim.keymap.set("i", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
-vim.keymap.set("v", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
+-- vim.keymap.set("n", "<C-a>", "ggVG$", { desc = "Select all text" })
+-- vim.keymap.set("i", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
+-- vim.keymap.set("v", "<C-a>", "<Esc>ggVG$", { desc = "Select all text" })
 
+local function select_all()
+  vim.cmd("normal! ggVG$")
+end
+
+vim.keymap.set("n", "<C-a>", select_all, { desc = "Select all text" })
+vim.keymap.set("i", "<C-a>", function()
+  vim.cmd("stopinsert")
+  select_all()
+end, { desc = "Select all text" })
+vim.keymap.set("v", "<C-a>", function()
+  vim.cmd("normal! ggVG$")
+end, { desc = "Select all text" })
 -- Backspace as Delete in Normal Mode
 vim.keymap.set("v", "<BS>", '"_d', { desc = "Delete selection without copying" })
 vim.keymap.set(
