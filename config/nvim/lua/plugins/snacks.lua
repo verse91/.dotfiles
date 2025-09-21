@@ -44,8 +44,8 @@ return {
           return vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1
         end,
 
-        hidden = false,
-        ignored = false,
+        hidden = true,
+        ignored = true,
         git_status = true,
         git_untracked = true,
         diagnostics = true,
@@ -80,6 +80,8 @@ return {
 
       -- Picker configuration
       picker = {
+        hidden = true,
+        ignored = true,
         enabled = true,
         ui_select = true,
         win = {
@@ -88,6 +90,7 @@ return {
 
         sources = {
           explorer = {
+
             layout = {
               layout = {
                 preset = "sidebar",
