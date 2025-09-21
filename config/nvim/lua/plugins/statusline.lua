@@ -82,7 +82,7 @@ return {
       options = {
         theme = custom_theme,
         -- Use powerline symbols for separators
-        component_separators = { left = "", right = "" }, -- Adjusted for better visual flow
+        -- component_separators = { left = "", right = "" }, -- Adjusted for better visual flow
         -- section_separators = { left = "", right = "" },
         disabled_filetypes = { "alpha", "Outline" },
         globalstatus = true,
