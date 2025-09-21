@@ -30,6 +30,7 @@ alias ai="tgpt"
 alias cls="clear"
 alias lc="locate"
 alias lg="lazygit"
+alias tm="tmux"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # uv
