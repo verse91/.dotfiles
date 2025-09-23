@@ -3,7 +3,7 @@ font-family = BerkeleyMono Nerd Font
 
 #font-family = Iosevka Nerd Font
 # font-family = SFMono Nerd Font 
-theme = tokyonight_moon
+theme = Aura
 shell-integration-features = no-cursor,sudo,no-title
 cursor-style = bar
 adjust-cell-height = 35%

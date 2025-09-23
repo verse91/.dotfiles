@@ -91,7 +91,7 @@ return {
         lualine_a = {
           {
             mode_icon, -- Call the function to get the mode icon and text
-            separator = { left = "", right = "" }, -- Add separators for this component
+            separator = { left = "", right = "" }, -- Add separators for this component
             right_padding = 2,
           },
         },
@@ -210,7 +210,7 @@ return {
           {
             "location",
             icon = "",
-            separator = { left = "", right = "" },
+            separator = { left = "", right = "" },
             left_padding = 2,
           },
         },
