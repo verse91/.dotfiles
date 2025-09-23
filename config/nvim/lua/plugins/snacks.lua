@@ -87,6 +87,10 @@ return {
         win = {
           border = "rounded",
         },
+        toggles = {
+          hidden = false,
+          ignored = false,
+        },
         sources = {
           explorer = {
             title = "Explorer 󰐰",
