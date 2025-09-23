@@ -21,6 +21,12 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+tma() {
+  local index=$1
+  local session=$(tmux list-sessions -F "#{session_name}" | sed -n "${index}p")
+  tmux attach -t "$session"
+}
+
 # Aliases
 alias nv="nvim"
 alias gr="go run"
@@ -31,6 +37,7 @@ alias cls="clear"
 alias lc="locate"
 alias lg="lazygit"
 alias tm="tmux"
+alias tk="tmux kill-server"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # uv
