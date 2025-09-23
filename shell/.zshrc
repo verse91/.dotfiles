@@ -38,6 +38,7 @@ alias lc="locate"
 alias lg="lazygit"
 alias tm="tmux"
 alias tk="tmux kill-server"
+alias ta="tmux a -t"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # uv
