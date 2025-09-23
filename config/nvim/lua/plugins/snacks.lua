@@ -44,8 +44,8 @@ return {
           return vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1
         end,
 
-        hidden = true,
-        ignored = true,
+        hidden = false,
+        ignored = false,
         git_status = true,
         git_untracked = true,
         diagnostics = true,
@@ -87,10 +87,9 @@ return {
         win = {
           border = "rounded",
         },
-
         sources = {
           explorer = {
-
+            title = "Explorer 󰐰",
             layout = {
               layout = {
                 preset = "sidebar",

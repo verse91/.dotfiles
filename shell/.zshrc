@@ -51,3 +51,4 @@ export LC_TIME=vi_VN.UTF-8
 export EDITOR=nvim
 eval "$(uv generate-shell-completion zsh)"
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="$HOME/.cargo/bin:$PATH"

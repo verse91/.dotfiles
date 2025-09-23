@@ -7,8 +7,8 @@ return {
         implementation = "lua",
       },
       keymap = {
-        preset = "enter", -- Use enter preset as base
-        -- Custom Tab behavior to match your nvim-cmp config
+        preset = nil, -- Use enter preset as base
+        ["<CR>"] = false,
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then
