@@ -45,8 +45,9 @@ sudo sh install.sh
 ### Lazy
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/c6f8c6bb-c986-4c45-9007-8624df731037" />
 
-## Default Terminal (Ghostty)
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/bb3e85ec-93f7-4f5a-9736-707d51321255" />
+## Default Terminal (Ghostty+Tmux)
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/1bfd06d2-5712-4739-b60f-f21236d5db16" />
+
 
 ## Lock screen
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6b6180c7-545f-44e4-bd8d-98eb26ec036b" />
