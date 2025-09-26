@@ -39,6 +39,7 @@ alias lg="lazygit"
 alias tm="tmux"
 alias tk="tmux kill-server"
 alias ta="tmux a -t"
+alias ca="cursor-agent"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # uv
