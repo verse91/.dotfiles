@@ -1,3 +1,7 @@
+# Auto tmux at startup but in next time open, attach last session
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach || tmux new
+fi
 # Prompt + zoxide
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
