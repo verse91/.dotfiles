@@ -51,6 +51,14 @@ vim.keymap.set("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down
 vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
 vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
 
+-- Normal mode
+vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
+vim.keymap.set("n", "H", "^", { desc = "Go to first non-blank character" })
+
+-- Visual mode
+vim.keymap.set("v", "L", "$", { desc = "Go to end of line (visual)" })
+vim.keymap.set("v", "H", "^", { desc = "Go to first non-blank character (visual)" })
+
 -- -- chatgpt
 -- vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })
 -- vim.keymap.set("n", "<leader>gpa", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Act As" })

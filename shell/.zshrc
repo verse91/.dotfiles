@@ -65,3 +65,4 @@ export EDITOR=nvim
 eval "$(uv generate-shell-completion zsh)"
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/.cargo/bin:$PATH"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
