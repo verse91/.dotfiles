@@ -31,35 +31,25 @@ vim.keymap.set(
   { desc = "Select current word for immediate replacement", noremap = true }
 )
 
+vim.keymap.set("n", "yw", "mzyaw`z", { desc = "Yank around word, keep cursor" })
+vim.keymap.set("n", "yc", 'mzvi"y`z', { desc = "Yank text inside quotes" })
+
+-- Keymaps for line navigation
+vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
+vim.keymap.set("n", "H", "^", { desc = "Go to first non-blank character" })
+
 vim.keymap.set("n", "<leader>K", "<Nop>")
 vim.keymap.set("n", "U", "<c-u>zz")
 vim.keymap.set("n", "D", "<c-d>zz")
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 
--- move lines
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-
--- Normal mode
-vim.keymap.set("n", "J", "^", { noremap = true })
-vim.keymap.set("n", "L", "$", { noremap = true })
-vim.keymap.set("n", "i", "<Up>", { noremap = true })
-vim.keymap.set("n", "j", "<Left>", { noremap = true })
-vim.keymap.set("n", "k", "<Down>", { noremap = true })
-vim.keymap.set("n", "l", "<Right>", { noremap = true })
-
--- Visual mode
-vim.keymap.set("v", "i", "<Up>", { noremap = true })
-vim.keymap.set("v", "j", "<Left>", { noremap = true })
-vim.keymap.set("v", "k", "<Down>", { noremap = true })
-vim.keymap.set("v", "l", "<Right>", { noremap = true })
 -- Alt+Arrow keys to move lines up/down (exactly like VS Code)
-vim.keymap.set("n", "<A-i>", "<cmd>m .-2<CR>==", { desc = "Move line up", silent = true })
-vim.keymap.set("n", "<A-k>", "<cmd>m .+1<CR>==", { desc = "Move line down", silent = true })
-vim.keymap.set("i", "<A-i>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up", silent = true })
-vim.keymap.set("i", "<A-k>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
-vim.keymap.set("v", "<A-i>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
-vim.keymap.set("v", "<A-k>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==", { desc = "Move line up", silent = true })
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", { desc = "Move line down", silent = true })
+vim.keymap.set("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up", silent = true })
+vim.keymap.set("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down", silent = true })
+vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
 
 -- -- chatgpt
 -- vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })
