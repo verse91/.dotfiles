@@ -30,7 +30,7 @@ return {
 {
   "simrat39/symbols-outline.nvim",
   cmd = "SymbolsOutline",
-  keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+ keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     require("symbols-outline").setup()
@@ -50,41 +50,19 @@ return {
   },
 
   -- add more treesitter parsers
-  {
-    "nvim-treesitter/nvim-treesitter",
-    -- use latest
-    version = false,
-    opts = {
-      ensure_installed = {
-        -- "angular", install manually, this seems to break it
-        "bash",
-        "go",
-        "gomod",
-        "gowork",
-        "gosum",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "rust",
-        "css",
-        "vue",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter.install").prefer_git = true
-      require("nvim-treesitter").setup(opts)
-    end,
-  },
+{
+  "nvim-treesitter/nvim-treesitter",
+  opts = function(_, opts)
+    -- Chỉ thêm parsers, để LazyVim lo phần còn lại
+    vim.list_extend(opts.ensure_installed, {
+      "bash", "go", "gomod", "gowork", "gosum",
+      "html", "javascript", "json", "lua", "rust",
+      "css", "vue", "markdown", "markdown_inline",
+      "python", "query", "regex", "tsx", "typescript",
+      "vim", "yaml",
+    })
+  end,
+},
 
   -- add any tools you want to have installed below
   {
