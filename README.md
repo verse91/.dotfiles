@@ -1,12 +1,22 @@
 
 # 💧 Hyprland Dotfiles
 
+## Default Terminal (Ghostty+Tmux)
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/18c32a82-d2ce-41e7-9fda-1c334859fadd" />
+
+## Lock screen
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6b6180c7-545f-44e4-bd8d-98eb26ec036b" />
+
+
 ##### Setup Walkthrough 👇 (Click to Play)
 [![Showcase Video](https://raw.githubusercontent.com/gaurav23b/simple-hyprland/main/assets/github_repo/images/Simple_hypr_thumbnail.png)](https://www.youtube.com/watch?v=eNJorbKz_-U)
 <div align="center"><b><i>This repo is based on <a href="https://github.com/gaurav23b/simple-hyprland">Simple-Hyprland</a>.</b></i></div>
 
 ## 🚀 Quick Installation
-
+> [!WARNING]
+> Currently I haven't create the installation script yet
+> Please install Simple Hyprland first, then copy paste anything you want
+<!---
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/verse91/.dotfiles.git ~/.dotfiles
@@ -23,7 +33,7 @@ cd ~/.dotfiles/scripts/installer
 ```bash
 sudo sh install.sh
 ```
-
+--->
 
 ## 💤 LazyVim Preview
 
@@ -44,12 +54,6 @@ sudo sh install.sh
 
 ### Lazy
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/c6f8c6bb-c986-4c45-9007-8624df731037" />
-
-## Default Terminal (Ghostty+Tmux)
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/79406cde-bbe2-4ace-bdde-58dde0592d9f" />
-
-## Lock screen
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6b6180c7-545f-44e4-bd8d-98eb26ec036b" />
 
 ## ⌨️ Key Bindings
 
