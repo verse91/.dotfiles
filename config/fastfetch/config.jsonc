@@ -18,46 +18,46 @@
     "modules": [
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+            "format": "\u001b[90m ┌─────────────────────────────────────────────────────┐",
         },
         {
             "type": "custom",
-            "format": "                       \u001b[38;5;51m VERSE",
+            "format": "                       \u001b[38;5;51m  VERSE",
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────┘",
+            "format": "\u001b[90m └────────────────────────────────────────────────────┘",
         },
         {
             "type": "custom",
-            "format": " \u001b[31m󰹻  \u001b[32m󰹻  \u001b[33m󰹻  \u001b[34m󰹻  \u001b[35m󰹻  \u001b[36m󰹻  \u001b[37m󰹻  \u001b[90m󰹻  \u001b[90m󰹻   \u001b[90m󰹻  \u001b[90m󰹻  \u001b[37m󰹻  \u001b[36m󰹻  \u001b[35m󰹻  \u001b[34m󰹻  \u001b[33m󰹻  \u001b[32m󰹻  \u001b[31m󰹻 ",
+            "format": "  \u001b[31m󰹻  \u001b[32m󰹻  \u001b[33m󰹻  \u001b[34m󰹻  \u001b[35m󰹻  \u001b[36m󰹻  \u001b[37m󰹻  \u001b[90m󰹻  \u001b[90m󰹻   \u001b[90m󰹻  \u001b[90m󰹻  \u001b[37m󰹻  \u001b[36m󰹻  \u001b[35m󰹻  \u001b[34m󰹻  \u001b[33m󰹻  \u001b[32m󰹻  \u001b[31m󰹻 ",
         },
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+            "format": "\u001b[90m ┌─────────────────────────────────────────────────────┐",
         },
         {
             "type": "custom",
-            "format": "\u001b[34m󰌢  PC         \u001b[37mHP Elitebook 845 G10",
+            "format": "\u001b[34m 󰌢  PC        \u001b[37mHP Elitebook 845 G10",
         },
         {
             "type": "os",
-            "key": "\u001b[34m󰣇  Distro",
+            "key": "\u001b[34m 󰣇  Distro",
             "keyWidth": 15,
         },
         {
             "type": "wm",
-            "key": "\u001b[34m  DE",
+            "key": "\u001b[34m   DE",
             "keyWidth": 15,
         },
         {
             "type": "custom",
-            "format": "\u001b[34m  Terminal   \u001b[37mGhotty",
+            "format": "\u001b[34m   Terminal  \u001b[37mGhotty",
             "keyWidth": 15,
         },
         {
             "type": "editor",
-            "key": "\u001b[34m󰈙  Editor",
+            "key": "\u001b[34m   Editor",
             "keyWidth": 15,
         },
         // {
@@ -90,31 +90,31 @@
         // },
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+            "format": "\u001b[90m ┌─────────────────────────────────────────────────────┐",
         },
         {
             "type": "cpu",
-            "key": "\u001b[34m󰻠  CPU",
+            "key": "\u001b[34m 󰻠  CPU",
             "keyWidth": 15,
         },
         {
             "type": "gpu",
-            "key": "\u001b[34m󰍛  GPU",
+            "key": "\u001b[34m 󰍛  GPU",
             "keyWidth": 15,
         },
         {
             "type": "memory",
-            "key": "\u001b[34m󰍛  Memory",
+            "key": "\u001b[34m 󰍛  Memory",
             "keyWidth": 15,
         },
         {
             "type": "disk",
-            "key": "\u001b[34m󰋊  Disk",
+            "key": "\u001b[34m 󰋊  Disk",
             "keyWidth": 15,
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────┘",
+            "format": "\u001b[90m └────────────────────────────────────────────────────┘",
         },
         // {
         //     "type": "custom",
