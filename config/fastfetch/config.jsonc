@@ -104,12 +104,12 @@
         },
         {
             "type": "memory",
-            "key": "\u001b[34m 󰍛  Memory",
+            "key": "\u001b[34m   RAM",
             "keyWidth": 15,
         },
         {
             "type": "disk",
-            "key": "\u001b[34m 󰋊  Disk",
+            "key": "\u001b[34m   SSD",
             "keyWidth": 15,
         },
         {
