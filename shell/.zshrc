@@ -37,7 +37,6 @@ ff() {
   echo $'                  \e[33m-トロンホアン-\e[0m'
 }
 ff
-
 # Aliases
 alias nv="nvim"
 alias gr="go run"
