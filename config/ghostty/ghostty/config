@@ -1,0 +1,90 @@
+cursor-text = #ffffff
+font-family = GeistMono Nerd Font Mono
+#font-family = Iosevka Nerd Font
+# font-family = SFMono Nerd Font
+theme = Aura
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = bar
+adjust-cell-height = 35%
+background-opacity = 0.85
+
+# Trail effect shaders:
+# custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
+# custom-shader = ~/.config/ghostty/shaders/cursor_smear.glsl
+custom-shader = ~/.config/ghostty/shaders/cursor_smear_fade.glsl
+# custom-shader = ~/.config/ghostty/shaders/cursor_smear_gradient.glsl
+# custom-shader = ~/.config/ghostty/shaders/cursor_smear_rainbow.glsl
+
+# Frozen/static effect:
+# custom-shader = ~/.config/ghostty/shaders/cursor_frozen.glsl
+
+# Animation effects:
+# custom-shader = ~/.config/ghostty/shaders/blaze_sparks.glsl
+# custom-shader = ~/.config/ghostty/shaders/party_sparks.glsl
+# custom-shader = ~/.config/ghostty/shaders/sparks.glsl
+# custom-shader = ~/.config/ghostty/shaders/manga_slash.glsl
+
+# Minimal/clean options:
+# custom-shader = ~/.config/ghostty/shaders/cursor_blaze_no_trail.glsl
+# custom-shader = ~/.config/ghostty/shaders/cursor_blaze_tapered.glsl
+# custom-shader = ~/.config/ghostty/shaders/cursor_border_1.glsl
+
+# Debug/test:
+# custom-shader = ~/.config/ghostty/shaders/debug_cursor_animated.glsl
+# custom-shader = ~/.config/ghostty/shaders/shake.glsl
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true
+window-save-state = always
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+#background = 1C2021
+# foreground = d4be98
+
+# keybindings
+keybind = alt+d>r=reload_config
+keybind = alt+d>x=close_surface
+
+keybind = alt+d>n=new_window
+
+# tabs
+keybind = alt+d>c=new_tab
+keybind = alt+d>shift+l=next_tab
+keybind = alt+d>shift+h=previous_tab
+keybind = alt+d>comma=move_tab:-1
+keybind = alt+d>period=move_tab:1
+
+# quick tab switch
+keybind = alt+d>1=goto_tab:1
+keybind = alt+d>2=goto_tab:2
+keybind = alt+d>3=goto_tab:3
+keybind = alt+d>4=goto_tab:4
+keybind = alt+d>5=goto_tab:5
+keybind = alt+d>6=goto_tab:6
+keybind = alt+d>7=goto_tab:7
+keybind = alt+d>8=goto_tab:8
+keybind = alt+d>9=goto_tab:9
+
+# split
+keybind = alt+d>\=new_split:right
+keybind = alt+d>-=new_split:down
+
+keybind = alt+d>k=goto_split:bottom
+keybind = alt+d>i=goto_split:top
+keybind = alt+d>j=goto_split:left
+keybind = alt+d>l=goto_split:right
+
+keybind = alt+d>z=toggle_split_zoom
+
+keybind = alt+d>e=equalize_splits
+
+# other
+keybind = ctrl+backspace=esc:w
+# copy-on-select = clipboard
+
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = performable:ctrl+v=paste_from_clipboard
+
+
