@@ -2,7 +2,7 @@
 # 💧 Hyprland Dotfiles
 
 ## Default Terminal (Ghostty+Tmux)
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/ca85c737-29f6-4068-8bdd-0009d1a89a3e" />
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/8a60d364-b35d-4b0d-8090-1170a7d884bd" />
 
 ## Lock screen
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6b6180c7-545f-44e4-bd8d-98eb26ec036b" />
