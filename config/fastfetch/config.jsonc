@@ -1,0 +1,136 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        // "type": "kitty-direct",
+        "type": "kitty-icat",
+        "source": "~/.config/fastfetch/ax-pro.png",
+        "height": 15,
+        "width": 50,
+        "position": "left",
+        "padding": {
+            "top": 0,
+            "right": 0,
+        },
+    },
+    "display": {
+        "separator": " ",
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+        },
+        {
+            "type": "custom",
+            "format": "                       \u001b[38;5;51m VERSE",
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘",
+        },
+        {
+            "type": "custom",
+            "format": " \u001b[31m󰹻  \u001b[32m󰹻  \u001b[33m󰹻  \u001b[34m󰹻  \u001b[35m󰹻  \u001b[36m󰹻  \u001b[37m󰹻  \u001b[90m󰹻  \u001b[90m󰹻   \u001b[90m󰹻  \u001b[90m󰹻  \u001b[37m󰹻  \u001b[36m󰹻  \u001b[35m󰹻  \u001b[34m󰹻  \u001b[33m󰹻  \u001b[32m󰹻  \u001b[31m󰹻 ",
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[34m󰌢  PC         \u001b[37mHP Elitebook 845 G10",
+        },
+        {
+            "type": "os",
+            "key": "\u001b[34m󰣇  Distro",
+            "keyWidth": 15,
+        },
+        {
+            "type": "wm",
+            "key": "\u001b[34m  DE",
+            "keyWidth": 15,
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[34m  Terminal   \u001b[37mGhotty",
+            "keyWidth": 15,
+        },
+        {
+            "type": "editor",
+            "key": "\u001b[34m󰈙  Editor",
+            "keyWidth": 15,
+        },
+        // {
+        //     "type": "custom",
+        //     "format": "\u001b[90m┌────────────────────────────────────────────────────────────┐",
+        // },
+        // {
+        //     "type": "theme",
+        //     "key": "󰉼  Theme",
+        // },
+        // {
+        //     "type": "icons",
+        //     "key": "󰀻  Icon",
+        // },
+        // {
+        //     "type": "cursor",
+        //     "key": "󰏚  Cursor",
+        // },
+        // {
+        //     "type": "font",
+        //     "key": "  Font",
+        // },
+        // {
+        //     "type": "terminalfont",
+        //     "key": "  Terminal Font",
+        // },
+        // {
+        //     "type": "custom",
+        //     "format": "\u001b[90m└────────────────────────────────────────────────────────────┘",
+        // },
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────────────────────────────────────┐",
+        },
+        {
+            "type": "cpu",
+            "key": "\u001b[34m󰻠  CPU",
+            "keyWidth": 15,
+        },
+        {
+            "type": "gpu",
+            "key": "\u001b[34m󰍛  GPU",
+            "keyWidth": 15,
+        },
+        {
+            "type": "memory",
+            "key": "\u001b[34m󰍛  Memory",
+            "keyWidth": 15,
+        },
+        {
+            "type": "disk",
+            "key": "\u001b[34m󰋊  Disk",
+            "keyWidth": 15,
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘",
+        },
+        // {
+        //     "type": "custom",
+        //     "format": "\u001b[90m┌────────────────────────────────────────────────────────────┐",
+        // },
+        // {
+        //     "type": "battery",
+        //     "key": "\u001b[34m  Battery",
+        // },
+        // {
+        //     "type": "uptime",
+        //     "key": "\u001b[34m󰅐  Uptime",
+        // },
+        // {
+        //     "type": "custom",
+        //     "format": "\u001b[90m└────────────────────────────────────────────────────────────┘",
+        // },
+    ],
+}

@@ -31,6 +31,13 @@ tma() {
   tmux attach -t "$session"
 }
 
+ff() {
+  fastfetch
+  echo $'     \e[33m\e[3m"あぁ、あなたが文化人だとわかりました。"\e[0m'
+  echo $'                  \e[33m-トロンホアン-\e[0m'
+}
+ff
+
 # Aliases
 alias nv="nvim"
 alias gr="go run"
@@ -44,6 +51,7 @@ alias tm="tmux"
 alias tk="tmux kill-server"
 alias ta="tmux a -t"
 alias ca="cursor-agent"
+alias t="touch"
 # Local env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # uv
@@ -66,3 +74,5 @@ eval "$(uv generate-shell-completion zsh)"
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
+export PATH="$HOME/.local/kitty.app/bin:$PATH"
+
