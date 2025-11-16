@@ -14,8 +14,8 @@
 
 ## 🚀 Quick Installation
 > [!WARNING]
-> Currently I haven't create the installation script yet
-> Please install Simple Hyprland first, then copy paste anything you want
+> Currently I haven't created the installation script yet  
+> Please install Simple Hyprland first, then copy-paste anything you want
 <!---
 ### 1. Clone the repository
 ```bash
